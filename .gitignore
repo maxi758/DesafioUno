@@ -3,7 +3,7 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-# User-specific files
+# User-specific files 
 *.rsuser
 *.suo
 *.user
@@ -219,7 +219,7 @@ _pkginfo.txt
 # but keep track of directories ending in .cache
 !?*.[Cc]ache/
 
-# Others
+# Others *
 ClientBin/
 ~$*
 *~
