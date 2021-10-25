@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace DesafioUno.Entities
+namespace Desafio_Uno.Entities
 {
-    public class User
+    class User
     {
         public int Id { get; set; }
         public string Name { get; set; }

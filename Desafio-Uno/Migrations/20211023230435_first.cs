@@ -1,14 +1,18 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DesafioUno.Migrations
+namespace Desafio_Uno.Migrations
 {
-    public partial class Primera : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "user");
+
             migrationBuilder.CreateTable(
                 name: "Users",
+                schema: "user",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -24,6 +28,7 @@ namespace DesafioUno.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Comments",
+                schema: "user",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -38,6 +43,7 @@ namespace DesafioUno.Migrations
                     table.ForeignKey(
                         name: "FK_Comments_Users_UserId",
                         column: x => x.UserId,
+                        principalSchema: "user",
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -45,6 +51,7 @@ namespace DesafioUno.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Posts",
+                schema: "user",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -60,6 +67,7 @@ namespace DesafioUno.Migrations
                     table.ForeignKey(
                         name: "FK_Posts_Users_UserId",
                         column: x => x.UserId,
+                        principalSchema: "user",
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -67,11 +75,13 @@ namespace DesafioUno.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Comments_UserId",
+                schema: "user",
                 table: "Comments",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Posts_UserId",
+                schema: "user",
                 table: "Posts",
                 column: "UserId");
         }
@@ -79,13 +89,16 @@ namespace DesafioUno.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Comments");
+                name: "Comments",
+                schema: "user");
 
             migrationBuilder.DropTable(
-                name: "Posts");
+                name: "Posts",
+                schema: "user");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Users",
+                schema: "user");
         }
     }
 }
